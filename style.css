@@ -1,0 +1,35 @@
+
+body {
+    background:white;
+    max-width: 380px;
+    min-width: 275px;
+    margin: auto;
+}
+
+#title{
+  margin-top: 5px;
+  text-align: center;
+}
+
+.grid-3{
+  margin: 3px;
+  display: inline-block;
+  width: 30%
+}
+
+.grid-3 img{
+width:100%;
+background-size: contain;
+height: 100px;
+}
+
+.win{
+  margin: 10px;
+  padding-bottom: 10px;
+  border: 1px solid #FA8258;
+}
+
+.results{
+  background-color: #E6E6E6; 
+  margin: 10px;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html ng-app="myApp">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	  <!-- Style -->
+	  <link rel="stylesheet" href="style.css">
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	  <script src="controller.js"></script>
+		
+    <title>Memory Game</title>
+  </head>
+
+  <body ng-controller="gameCtrl">
+  <br/>
+    <div id="title">Find matching tiles as quickly as you can. <br> {{win}} / {{n}} </div>
+  <br/>
+  <center>
+
+  <div class="win" ng-show="playagain">
+    <p>Good job!</p>
+    <button onclick="history.go(0)">Play Again!</button>
+  </div>
+
+  <div ng-hide="playagain"> 
+
+    <p class="results">
+      <span ng-show="match" style="color:green;"> Matching Tiles Removed!</span>
+      <span ng-show="nomatch" style="color: red;">Tiles Do Not Match</span>
+      <span ng-hide="match || nomatch">Tap on a tile</span>
+    </p>
+
+    <div class="grid-3" ng-repeat="item in items = (words | orderBy: 'order') track by $index">
+      
+      <div ng-show="item.ver">
+        <span ng-hide="item.verimage"><img src="base.png" ng-click="isDisabled || mostrar(item)"></span>
+        <span ng-show="item.verimage"><img ng-src="{{item.image}}" ng-click="ocultar(item)"></span>
+      </div>
+
+      <div ng-hide="item.ver"><center>{{item.phrase}}</center></div>
+
+    </div>
+
+  </div>
+  </center>
+
+  </body>
+</html>
